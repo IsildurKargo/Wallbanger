@@ -1,0 +1,11 @@
+182 Höhe
+496 Breite
+1 : 2.73
+A 90272
+% 2.449
+Button
+
+2560 Höhe 
+1440 Breite
+A 3686400
+Window
