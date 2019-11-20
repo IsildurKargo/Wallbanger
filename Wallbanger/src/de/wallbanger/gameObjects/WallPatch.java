@@ -93,6 +93,44 @@ public class WallPatch extends GameObject {
 		}
 	}
 
+	// BALLSIDE DETECTION - prevent different sides
+	private boolean ballSideDetectionHorizontal() {
+		int ballSideCount = 0;
+		// for each ball in balls add 1 if he is above, remove one if he is underneath
+		for (Ball ball : balls) {
+			if (ball.getY() >= this.y + height) {
+				ballSideCount++;
+			} else if (ball.getY() < this.y) {
+				ballSideCount--;
+			}
+		}
+		// if ballSideCount is unequal |amount of balls| remove wall
+		if (ballSideCount == balls.size() || ballSideCount == -balls.size()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// BALLSIDE DETECTION - prevent different sides
+	private boolean ballSideDetectionVertical() {
+		int ballSideCount = 0;
+		// for each ball in balls add 1 if he is right, remove one if he is left
+		for (Ball ball : balls) {
+			if (ball.getX() >= this.x + width) {
+				ballSideCount++;
+			} else if (ball.getX() < this.x) {
+				ballSideCount--;
+			}
+		}
+		// if ballSideCount is unequal |amount of balls| remove wall
+		if (ballSideCount == balls.size() || ballSideCount == -balls.size()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	// EXTENDS WALL FOR CURRENT FRAME ON VERTICAL AXIS
 	private void extendWallHorizontal(long delta) {
 		float velocityX = speedX * delta;
@@ -106,7 +144,12 @@ public class WallPatch extends GameObject {
 			width = gameBoard.getWidth();
 			velocityX = 0;
 			x = 0;
-			completedWallHorizontal = true;
+			// if all balls are on one side shrink gameBoard
+			if (ballSideDetectionHorizontal()) {
+				completedWallHorizontal = true;
+			} else {
+				this.init();
+			}
 			// if only x is at maximum stay there and slow down width because width equals
 			// two times speedX
 		} else if (x + velocityX <= 0) {
@@ -138,7 +181,11 @@ public class WallPatch extends GameObject {
 			height = gameBoard.getHeight();
 			velocityY = 0;
 			y = 0;
-			completedWallVertical = true;
+			if (ballSideDetectionVertical()) {
+				completedWallVertical = true;
+			} else {
+				this.init();
+			}
 			// if only y is at maximum stay there and slow down height because height equals
 			// two times speedY
 		} else if (y + velocityY <= 0) {
@@ -175,6 +222,10 @@ public class WallPatch extends GameObject {
 
 	public void addBall(Ball ball) {
 		balls.add(ball);
+	}
+
+	public void addBalls(ArrayList<Ball> balls) {
+		this.balls = balls;
 	}
 
 	public void setBalls(ArrayList<Ball> balls) {

@@ -26,7 +26,7 @@ public class MPScene extends Scene {
 		gameBoard.setX(100);
 		gameBoard.setY(200);
 		gameBoard.setWall(wall);
-		gameBoard.setBalls(balls);
+		gameBoard.addBalls(balls);
 
 		wall.setBoard(gameBoard);
 		wall.setBalls(balls);

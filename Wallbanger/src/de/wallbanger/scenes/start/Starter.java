@@ -7,7 +7,7 @@ public class Starter {
 
 	public static int WINDOW_WIDTH = 2560;
 	public static int WINDOW_HEIGHT = 1440;
-	public static final String version = "alpha 1.0.1";
+	public static final String version = "alpha 1.0.2";
 	public static Engine engine = new Engine();
 	public static Starter instance;
 

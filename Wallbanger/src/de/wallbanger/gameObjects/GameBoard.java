@@ -115,8 +115,18 @@ public class GameBoard extends GameObject {
 		this.wall = wall;
 	}
 
-	public void setBalls(ArrayList<Ball> balls) {
+	public void addBalls(ArrayList<Ball> balls) {
 		this.balls = balls;
+	}
+	
+	public void addGameObject(GameObject gameObject) {
+		if(gameObject instanceof Wall) {
+			this.wall = (Wall) gameObject;
+		}else if(gameObject instanceof Ball) {
+			balls.add((Ball) gameObject); 
+		} else {
+			System.err.println("Cannot add gameObject!");
+		}
 	}
 
 	public void addBall(Ball ball) {

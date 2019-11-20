@@ -49,8 +49,8 @@ public class Horde extends Scene {
 			ball.setBoard(board);
 		}
 
-		board.setWall(wall);
-		board.setBalls(balls);
+		board.addGameObject(wall);
+		board.addBalls(balls);
 
 		wall.setBoard(board);
 
