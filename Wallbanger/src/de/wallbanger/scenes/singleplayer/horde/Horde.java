@@ -63,7 +63,8 @@ public class Horde extends Scene {
 
 	public void addGO() {
 		this.addGameObject(board);
-		this.addGameObject(new GameButton(resetImage, resetOnHoverImage, Starter.startScene, Starter.WINDOW_WIDTH - 60, 10));
+		this.addGameObject(
+				new GameButton(resetImage, resetOnHoverImage, Starter.startScene, Starter.WINDOW_WIDTH - 60, 10));
 		this.addGameObject(wall);
 		for (Ball ball : balls) {
 			this.addGameObject(ball);
@@ -71,11 +72,11 @@ public class Horde extends Scene {
 		this.addGameObject(score);
 		this.addGameObject(new LevelChanger());
 	}
-	
+
 	public int getBallAmount() {
 		return ballAmount;
 	}
-	
+
 	public int getWalls() {
 		return walls;
 	}

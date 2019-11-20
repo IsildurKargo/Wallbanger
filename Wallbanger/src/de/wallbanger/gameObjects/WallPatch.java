@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import de.wallbanger.engine.GameObject;
 import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.score.Scoreboard;
 
 public class WallPatch extends GameObject {
 
@@ -19,6 +20,10 @@ public class WallPatch extends GameObject {
 	private float speedX;
 	private float speedY;
 
+	private boolean completedWallHorizontal; // boolean if the horizontal wall is hitting the border on both sides
+	private boolean completedWallVertical; // boolean if the vertical wall is hitting the border on both sides
+
+	private Scoreboard scoreboard;
 	private GameBoard gameBoard;
 	private ArrayList<Ball> balls = new ArrayList<Ball>();
 
@@ -31,13 +36,18 @@ public class WallPatch extends GameObject {
 
 		speedX = 10f / 30;
 		speedY = 10f / 30;
-		
+
+		completedWallHorizontal = false;
+		completedWallVertical = false;
+
 		direction = 0;
 	}
 
 	@Override
 	public void onClick(MouseEvent e) {
 		this.init();
+		scoreboard.removeWall();
+
 		direction = e.getButton();
 		if (direction == 3) {
 			x = e.getX() - ((int) Math.round(Starter.WINDOW_WIDTH / 51.2) / 2);
@@ -96,7 +106,7 @@ public class WallPatch extends GameObject {
 			width = gameBoard.getWidth();
 			velocityX = 0;
 			x = 0;
-
+			completedWallHorizontal = true;
 			// if only x is at maximum stay there and slow down width because width equals
 			// two times speedX
 		} else if (x + velocityX <= 0) {
@@ -128,7 +138,7 @@ public class WallPatch extends GameObject {
 			height = gameBoard.getHeight();
 			velocityY = 0;
 			y = 0;
-
+			completedWallVertical = true;
 			// if only y is at maximum stay there and slow down height because height equals
 			// two times speedY
 		} else if (y + velocityY <= 0) {
@@ -151,6 +161,10 @@ public class WallPatch extends GameObject {
 		this.gameBoard = gameBoard;
 	}
 
+	public void setScoreboard(Scoreboard scoreboard) {
+		this.scoreboard = scoreboard;
+	}
+
 	public float getX() {
 		return x;
 	}
@@ -165,6 +179,14 @@ public class WallPatch extends GameObject {
 
 	public void setBalls(ArrayList<Ball> balls) {
 		this.balls = balls;
+	}
+
+	public boolean isCompletedWallHorizontal() {
+		return completedWallHorizontal;
+	}
+
+	public boolean isCompletedWallVertical() {
+		return completedWallVertical;
 	}
 
 }
