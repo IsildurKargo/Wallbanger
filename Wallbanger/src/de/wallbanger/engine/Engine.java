@@ -9,7 +9,6 @@ public class Engine implements Runnable {
 	public Engine() {
 		instance = this;
 		window = new Window(this);
-
 	}
 
 	public void start() {

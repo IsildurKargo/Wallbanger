@@ -63,7 +63,7 @@ public class Level extends Scene{
 
 		wall.setBoard(board);
 
-		wall.setScore(score);
+		wall.setScoreboard(score);
 
 		wall.setBalls(balls);
 

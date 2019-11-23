@@ -45,46 +45,45 @@ public class GameBoard extends GameObject {
 
 	@Override
 	public void update(long delta) {
-		borderShrinkRight();
-		borderShrinkLeft();
+		borderShrinkHorizontal();
+		borderShrinkVertical();
 	}
 
-	public void borderShrinkRight() {
-		if (wall.getBorderHHRight()) {
-			for (Ball ball : balls) {
-				if (ball.getX() < wall.getX()) {
-					// right
-					width = wall.getX() - x;
+	//if the horizontal wall is complete shrink board accordingly to the side of the ball
+	public void borderShrinkVertical() {
+		if (wall.isCompletedWallVertical()) {
+			if (balls.get(0).getX() < wall.getX()) {
+				// right
+				width = wall.getX() - x;
 
-				} else if (ball.getX() > wall.getX() + wall.getWidth()) {
-					// left
-					if (hitR) {
-						width = width - (wall.getX() + wall.getWidth()) + x;
-						hitR = false;
-					}
-					x = wall.getX() + wall.getWidth();
+			} else if (balls.get(0).getX() > wall.getX() + wall.getWidth()) {
+				// left
+				if (hitR) {
+					width = width - (wall.getX() + wall.getWidth()) + x;
+					hitR = false;
 				}
+				x = wall.getX() + wall.getWidth();
 			}
 		} else {
 			hitR = true;
 		}
 	}
 
-	public void borderShrinkLeft() {
-		if (wall.getBorderHHLeft()) {
-			for (Ball ball : balls) {
-				if (ball.getY() < wall.getY()) {
-					// bottom
-					height = wall.getY() - y;
-				} else if (ball.getY() > wall.getY() + wall.getHeight()) {
-					// top
-					if (hitL) {
-						height = height - (wall.getY() + wall.getHeight()) + y;
-						hitL = false;
-					}
-					y = wall.getY() + wall.getHeight();
+	//if the vertical wall is complete shrink board accordingly to the side of the ball
+	public void borderShrinkHorizontal() {
+		if (wall.isCompletedWallHorizontal()) {
+			if (balls.get(0).getY() < wall.getY()) {
+				// bottom
+				height = wall.getY() - y;
+			} else if (balls.get(0).getY() > wall.getY() + wall.getHeight()) {
+				// top
+				if (hitL) {
+					height = height - (wall.getY() + wall.getHeight()) + y;
+					hitL = false;
 				}
+				y = wall.getY() + wall.getHeight();
 			}
+
 		} else {
 			hitL = true;
 		}
@@ -118,12 +117,12 @@ public class GameBoard extends GameObject {
 	public void addBalls(ArrayList<Ball> balls) {
 		this.balls = balls;
 	}
-	
+
 	public void addGameObject(GameObject gameObject) {
-		if(gameObject instanceof Wall) {
+		if (gameObject instanceof Wall) {
 			this.wall = (Wall) gameObject;
-		}else if(gameObject instanceof Ball) {
-			balls.add((Ball) gameObject); 
+		} else if (gameObject instanceof Ball) {
+			balls.add((Ball) gameObject);
 		} else {
 			System.err.println("Cannot add gameObject!");
 		}
