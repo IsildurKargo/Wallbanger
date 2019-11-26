@@ -5,7 +5,7 @@ public class Engine implements Runnable {
 	Window window;
 	Scene scene;
 	public Engine instance;
-	
+
 	public Engine() {
 		instance = this;
 		window = new Window(this);
@@ -14,7 +14,7 @@ public class Engine implements Runnable {
 	public void start() {
 		scene.init();
 		new Thread(this).start();
-	}	
+	}
 
 	public void setScene(Scene scene) {
 		this.scene = scene;
@@ -29,7 +29,9 @@ public class Engine implements Runnable {
 			long delta = System.currentTimeMillis() - lastTimestamp;
 			lastTimestamp = System.currentTimeMillis();
 			scene.update(delta);
-			window.repaint();
+			if (window != null) {
+				window.repaint();
+			}
 
 			try {
 				Thread.sleep(30);

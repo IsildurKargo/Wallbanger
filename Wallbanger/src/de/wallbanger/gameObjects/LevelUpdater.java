@@ -24,11 +24,11 @@ public class LevelUpdater extends GameObject{
 	
 	public static void unlockNextLevel(Integer level) {
 		if (utilBit == 0 && Math.round(percentage) >= 60
-				&& level.equals(Integer.parseInt(Settings.instance.pref.get("level", "1")))) {
+				&& level.equals(Integer.parseInt(Settings.instance.getSetting("level", "1")))) {
 			System.out.println(level);
-			Integer nextLevel = Integer.parseInt(Settings.instance.pref.get("level", "1")) + 1;
+			Integer nextLevel = Integer.parseInt(Settings.instance.getSetting("level", "1")) + 1;
 			String nextLevelString = nextLevel.toString();
-			Settings.instance.pref.put("level", nextLevelString);
+			Settings.instance.addSetting("level", nextLevelString);
 			utilBit = 1;
 		}
 	}

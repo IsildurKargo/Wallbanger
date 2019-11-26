@@ -12,7 +12,7 @@ import de.wallbanger.engine.Scene;
 import de.wallbanger.sceneObjects.Background;
 import de.wallbanger.scenes.singleplayer.horde.Horde;
 import de.wallbanger.scenes.singleplayer.levels.LevelsScene;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 import de.wallbanger.util.ImageUtils;
 
 public class SPScene extends Scene {
@@ -23,9 +23,9 @@ public class SPScene extends Scene {
 	private BufferedImage hordeOnHoverImage = ImageUtils.fromFile("images/hordeButtonOnHover.png");
 	private BufferedImage resetImage = ImageUtils.fromFile("images/smallReset.png");
 	private BufferedImage resetOnHoverImage = ImageUtils.fromFile("images/smallResetOnHover.png");
-	private double levelX = Starter.WINDOW_WIDTH * 0.052;
-	private double hordeX = Starter.WINDOW_WIDTH * 0.755;
-	private double y = Starter.WINDOW_HEIGHT * 0.4125;
+	private double levelX = Wallbanger.WINDOW_WIDTH * 0.052;
+	private double hordeX = Wallbanger.WINDOW_WIDTH * 0.755;
+	private double y = Wallbanger.WINDOW_HEIGHT * 0.4125;
 	public LevelsScene levelsScene = new LevelsScene();
 	private static int nextLevel = 0;
 	public static Horde horde = new Horde(1, 50);
@@ -36,7 +36,7 @@ public class SPScene extends Scene {
 		this.addGameObject(new Background("images/black.png"));
 		this.addGameObject(new GameButton(levelsImage, levelsOnHoverImage, levelsScene, (int) levelX, (int) y, true));
 		this.addGameObject(new GameButton(hordeImage, hordeOnHoverImage, horde, (int) hordeX, (int) y, true));
-		this.addGameObject(new GameButton(resetImage, resetOnHoverImage, Starter.startScene, Starter.WINDOW_WIDTH - 60, 10));
+		this.addGameObject(new GameButton(resetImage, resetOnHoverImage, Wallbanger.startScene, Wallbanger.WINDOW_WIDTH - 60, 10));
 	}
 
 	public int getNextLevel() {

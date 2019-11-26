@@ -6,7 +6,7 @@ import de.wallbanger.engine.Scene;
 import de.wallbanger.gameObjects.Ball;
 import de.wallbanger.gameObjects.GameBoard;
 import de.wallbanger.gameObjects.Wall;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 import de.wallbanger.score.Scoreboard;
 
 public class MPScene extends Scene {
@@ -21,8 +21,8 @@ public class MPScene extends Scene {
 
 		balls.add(new Ball());
 
-		gameBoard.setHeight(Starter.WINDOW_HEIGHT - 400);
-		gameBoard.setWidth(Starter.WINDOW_WIDTH - 1400);
+		gameBoard.setHeight(Wallbanger.WINDOW_HEIGHT - 400);
+		gameBoard.setWidth(Wallbanger.WINDOW_WIDTH - 1400);
 		gameBoard.setX(100);
 		gameBoard.setY(200);
 		gameBoard.setWall(wall);

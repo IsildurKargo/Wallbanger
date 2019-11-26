@@ -133,12 +133,12 @@ public class MatrixFNN {
 
 	public static MatrixFNN fromArray(double[] array) {
 		MatrixFNN newMatrix = new MatrixFNN(1, array.length);
-		for(int i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++) {
 			newMatrix.set(0, i, array[i]);
 		}
 		return newMatrix;
 	}
-	
+
 	public void set(int row, int colum, double input) {
 		matrix[row][colum] = input;
 	}

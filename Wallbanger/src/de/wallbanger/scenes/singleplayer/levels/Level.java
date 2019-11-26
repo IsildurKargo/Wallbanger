@@ -12,7 +12,7 @@ import de.wallbanger.gameObjects.Ball;
 import de.wallbanger.gameObjects.GameBoard;
 import de.wallbanger.gameObjects.LevelUpdater;
 import de.wallbanger.gameObjects.Wall;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 import de.wallbanger.score.EndText;
 import de.wallbanger.score.Scoreboard;
 
@@ -72,7 +72,7 @@ public class Level extends Scene{
 
 		this.addGameObject(board);
 		this.addGameObject(
-				new GameButton(resetImage, resetOnHoverImage, Starter.startScene, Starter.WINDOW_WIDTH - 60, 10));
+				new GameButton(resetImage, resetOnHoverImage, Wallbanger.startScene, Wallbanger.WINDOW_WIDTH - 60, 10));
 		this.addGameObject(wall);
 		for (Ball ball : balls) {
 			this.addGameObject(ball);

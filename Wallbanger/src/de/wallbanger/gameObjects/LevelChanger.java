@@ -3,7 +3,7 @@ package de.wallbanger.gameObjects;
 import de.wallbanger.engine.GameObject;
 import de.wallbanger.scenes.singleplayer.SPScene;
 import de.wallbanger.scenes.singleplayer.horde.Horde;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class LevelChanger extends GameObject {
 	
@@ -17,7 +17,7 @@ public class LevelChanger extends GameObject {
 		if(SPScene.horde.score.getPercentage() >= 60) {
 			SPScene.horde = new Horde(SPScene.horde.getBallAmount() + 1, SPScene.horde.score.getWalls());
 			SPScene.horde.init();
-			Starter.engine.setScene(SPScene.horde);
+			Wallbanger.engine.setScene(SPScene.horde);
 		}
 	}
 }

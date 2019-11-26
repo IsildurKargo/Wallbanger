@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 import de.wallbanger.engine.GameObject;
 import de.wallbanger.engine.Scene;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class GameButton extends GameObject {
 
@@ -18,7 +18,7 @@ public class GameButton extends GameObject {
 	private Scene scene;
 	private boolean useWidthAndHeight;
 	public static final int height = (int) Math
-			.round(Math.sqrt(0.00897 * (Starter.WINDOW_WIDTH * Starter.WINDOW_HEIGHT)));
+			.round(Math.sqrt(0.00897 * (Wallbanger.WINDOW_WIDTH * Wallbanger.WINDOW_HEIGHT)));
 	public static final int width = (int) Math.round(height * 2.73);
 
 	private boolean notInside;
@@ -70,7 +70,7 @@ public class GameButton extends GameObject {
 		if (e.getY() > y + image.getHeight(null))
 			return;
 
-		Starter.engine.instance.setScene(scene);
+		Wallbanger.engine.instance.setScene(scene);
 		scene.instance.init();
 	}
 

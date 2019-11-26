@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 import de.wallbanger.engine.GameObject;
 import de.wallbanger.scenes.singleplayer.levels.Level;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class EndText extends GameObject {
 
@@ -22,8 +22,8 @@ public class EndText extends GameObject {
 	public void init() {
 		size = 0;
 		text = "";
-		x = Starter.WINDOW_WIDTH / 3;
-		y = Starter.WINDOW_HEIGHT / 2;
+		x = Wallbanger.WINDOW_WIDTH / 3;
+		y = Wallbanger.WINDOW_HEIGHT / 2;
 		c = Color.RED;
 		t = 0;
 	}

@@ -9,3 +9,25 @@ Button
 1440 Breite
 A 3686400
 Window
+
+IMPORTANT 
+
+-----------------------------
+-    x->	width->			-
+-    y						-
+-	 |   		height		-
+-	 v	    		|		-
+-					v		-
+-							-
+-							-
+-----------------------------
+
+	(0|0) Left upper corner 
+	(Max|0) Right upper corner
+	(Max|Max) Right lower corner
+	(0|Max) Left lower corner
+	
+	y increases in down direction 
+	x increases in right direction 
+	height goes more down 
+	width goes more right

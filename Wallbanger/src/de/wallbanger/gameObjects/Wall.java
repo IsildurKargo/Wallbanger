@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import de.wallbanger.engine.GameObject;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 import de.wallbanger.score.Scoreboard;
 
 public class Wall extends GameObject {
@@ -51,14 +51,14 @@ public class Wall extends GameObject {
 
 		direction = e.getButton();
 		if (direction == 3) {
-			x = e.getX() - ((int) Math.round(Starter.WINDOW_WIDTH / 51.2) / 2);
+			x = e.getX() - ((int) Math.round(Wallbanger.WINDOW_WIDTH / 51.2) / 2);
 			y = e.getY();
-			width = (int) Math.round(Starter.WINDOW_WIDTH / 51.2);
+			width = (int) Math.round(Wallbanger.WINDOW_WIDTH / 51.2);
 		}
 		if (direction == 1) {
 			x = e.getX();
-			y = e.getY() - ((int) Math.round(Starter.WINDOW_HEIGHT / 28.8) / 2);
-			height = (int) Math.round(Starter.WINDOW_HEIGHT / 28.8);
+			y = e.getY() - ((int) Math.round(Wallbanger.WINDOW_HEIGHT / 28.8) / 2);
+			height = (int) Math.round(Wallbanger.WINDOW_HEIGHT / 28.8);
 		}
 	}
 

@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import de.wallbanger.engine.GameObject;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class GameBoard extends GameObject {
 
@@ -30,8 +30,8 @@ public class GameBoard extends GameObject {
 		x = 0;
 		y = 0;
 
-		width = Starter.WINDOW_WIDTH;
-		height = Starter.WINDOW_HEIGHT;
+		width = Wallbanger.WINDOW_WIDTH;
+		height = Wallbanger.WINDOW_HEIGHT;
 
 		hitR = true;
 		hitL = true;

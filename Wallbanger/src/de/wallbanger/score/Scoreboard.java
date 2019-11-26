@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 import de.wallbanger.engine.GameObject;
 import de.wallbanger.gameObjects.GameBoard;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class Scoreboard extends GameObject {
 
@@ -47,7 +47,7 @@ public class Scoreboard extends GameObject {
 
 	private void changeScore() {
 		percentage = 100 - (((board.getHeight() - board.getY()) * (board.getWidth() - board.getX()))
-				/ (Starter.WINDOW_HEIGHT * Starter.WINDOW_WIDTH)) * 100;
+				/ (Wallbanger.WINDOW_HEIGHT * Wallbanger.WINDOW_WIDTH)) * 100;
 	}
 
 	public void removeWall() {

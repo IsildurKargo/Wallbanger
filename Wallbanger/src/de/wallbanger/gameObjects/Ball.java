@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Random;
 
 import de.wallbanger.engine.GameObject;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class Ball extends GameObject {
 
@@ -28,12 +28,12 @@ public class Ball extends GameObject {
 	
 	@Override
 	public void init() {
-		x = rand.nextInt(Starter.WINDOW_WIDTH);
-		y = rand.nextInt(Starter.WINDOW_HEIGHT);
+		x = rand.nextInt(Wallbanger.WINDOW_WIDTH);
+		y = rand.nextInt(Wallbanger.WINDOW_HEIGHT);
 		speedX = 10f / 60 * next();
 		speedY = 10f / 60 * next();
 		radius = 50f;
-		radius = (float) Math.sqrt(((Starter.WINDOW_HEIGHT * Starter.WINDOW_WIDTH)* 0.002)/Math.PI);
+		radius = (float) Math.sqrt(((Wallbanger.WINDOW_HEIGHT * Wallbanger.WINDOW_WIDTH)* 0.002)/Math.PI);
 	}
 
 	private int next() {

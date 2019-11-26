@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class Window extends JPanel implements Runnable {
 
@@ -25,15 +25,20 @@ public class Window extends JPanel implements Runnable {
 
 		addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				engine.scene.onClick(e);
+				if (engine != null) {
+					engine.scene.onClick(e);
+				}
 			}
 		});
 
 		addMouseMotionListener(new MouseAdapter() {
 			public void mouseMoved(MouseEvent e) {
-				engine.scene.onMoving(e);
+				if (engine != null) {
+					engine.scene.onMoving(e);
+				}
 			}
 		});
+
 	}
 
 	@Override
@@ -49,13 +54,15 @@ public class Window extends JPanel implements Runnable {
 	}
 
 	public Dimension getPreferredSize() {
-		return new Dimension(Starter.WINDOW_WIDTH, Starter.WINDOW_HEIGHT);
+		return new Dimension(Wallbanger.WINDOW_WIDTH, Wallbanger.WINDOW_HEIGHT);
 	}
 
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		engine.scene.render(g);
+		if (engine != null) {
+			engine.scene.render(g);
+		}
 	}
 
 }

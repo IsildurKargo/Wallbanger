@@ -3,13 +3,13 @@ package de.wallbanger.scenes.start;
 import de.wallbanger.engine.Engine;
 import de.wallbanger.settings.Settings;
 
-public class Starter {
+public class Wallbanger {
 
 	public static int WINDOW_WIDTH = 2560;
 	public static int WINDOW_HEIGHT = 1440;
-	public static final String version = "alpha 1.0.3";
+	public static final String version = "alpha 1.0.4";
 	public static Engine engine = new Engine();
-	public static Starter instance;
+	public static Wallbanger instance;
 
 	public static StartScene startScene = new StartScene();
 
@@ -29,8 +29,8 @@ public class Starter {
 //			System.out.println(output[i]);
 //		}
 
-		instance = new Starter();
-		new Settings();
+		instance = new Wallbanger();
+		new Settings("settings");
 		
 		engine.setScene(startScene);
 		engine.start();

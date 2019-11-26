@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import de.wallbanger.engine.GameObject;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class Background extends GameObject {
 
@@ -25,7 +25,7 @@ public class Background extends GameObject {
 	@Override
 	public void render(Graphics g) {
 		if (image != null) {
-			g.drawImage(image, 0, 0, Starter.WINDOW_WIDTH, Starter.WINDOW_HEIGHT, null);
+			g.drawImage(image, 0, 0, Wallbanger.WINDOW_WIDTH, Wallbanger.WINDOW_HEIGHT, null);
 		}
 	}
 }

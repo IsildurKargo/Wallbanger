@@ -10,7 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import de.wallbanger.engine.GameObject;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class Header extends GameObject {
 
@@ -31,8 +31,8 @@ public class Header extends GameObject {
 			e.printStackTrace();
 		}
 
-		x = (Starter.WINDOW_WIDTH / 2) - (headerImage.getWidth(null) / 2);
-		y = (Starter.WINDOW_HEIGHT / 4) - (headerImage.getHeight(null) / 2);
+		x = (Wallbanger.WINDOW_WIDTH / 2) - (headerImage.getWidth(null) / 2);
+		y = (Wallbanger.WINDOW_HEIGHT / 4) - (headerImage.getHeight(null) / 2);
 	}
 
 	public Header(String writtenString, int xPos, int yPos, Color color, int height) {

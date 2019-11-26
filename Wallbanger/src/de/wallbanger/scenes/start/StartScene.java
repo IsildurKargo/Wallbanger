@@ -32,19 +32,19 @@ public class StartScene extends Scene{
 		instance = this;
 
 		Background background = new Background("images/mainBack.jpg");
-		Header version = new Header("version: " + Starter.version, 10, 40, Color.WHITE, 30);
+		Header version = new Header("version: " + Wallbanger.version, 10, 40, Color.WHITE, 30);
 
 		this.addGameObject(background);
 		this.addGameObject(new GameButton(spImage, spOnHoverImage, spScene,
-				(Starter.WINDOW_WIDTH / 2) - (GameButton.width / 2),
-				(Starter.WINDOW_HEIGHT / 2) - (GameButton.height / 2) - 100, true));
+				(Wallbanger.WINDOW_WIDTH / 2) - (GameButton.width / 2),
+				(Wallbanger.WINDOW_HEIGHT / 2) - (GameButton.height / 2) - 100, true));
 		this.addGameObject(new GameButton(mpImage, mpOnHoverImage, mpScene,
-				(Starter.WINDOW_WIDTH / 2) - (GameButton.width / 2),
-				(Starter.WINDOW_HEIGHT / 2) - (GameButton.height / 2) + 100, true));
+				(Wallbanger.WINDOW_WIDTH / 2) - (GameButton.width / 2),
+				(Wallbanger.WINDOW_HEIGHT / 2) - (GameButton.height / 2) + 100, true));
 		this.addGameObject(new GameButton(creditsImage, creditsOnHoverImage, creditsScene,
-				(Starter.WINDOW_WIDTH / 2) - (GameButton.width / 2),
-				(Starter.WINDOW_HEIGHT / 2) - (GameButton.height / 2) + 500, true));
-		this.addGameObject(new GameButton(settingsImage, settingsScene, Starter.WINDOW_WIDTH - 120, Starter.WINDOW_HEIGHT - 120));
+				(Wallbanger.WINDOW_WIDTH / 2) - (GameButton.width / 2),
+				(Wallbanger.WINDOW_HEIGHT / 2) - (GameButton.height / 2) + 500, true));
+		this.addGameObject(new GameButton(settingsImage, settingsScene, Wallbanger.WINDOW_WIDTH - 120, Wallbanger.WINDOW_HEIGHT - 120));
 		this.addGameObject(new Header("images/wallbanger.png"));
 		this.addGameObject(version);
 	}

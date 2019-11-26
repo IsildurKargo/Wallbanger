@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 
 import de.wallbanger.engine.GameObject;
 import de.wallbanger.scenes.singleplayer.levels.Level;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 import de.wallbanger.settings.Settings;
 
 public class LevelIcon extends GameObject {
@@ -49,7 +49,7 @@ public class LevelIcon extends GameObject {
 
 			Level level = new Level(levelNum);
 			
-			Starter.engine.instance.setScene(level);
+			Wallbanger.engine.instance.setScene(level);
 			level.init();
 		}
 	}

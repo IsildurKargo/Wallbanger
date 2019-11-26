@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import de.wallbanger.buttons.GameButton;
 import de.wallbanger.engine.Scene;
 import de.wallbanger.sceneObjects.Header;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 
 public class CreditsScene extends Scene {
 
@@ -27,16 +27,16 @@ public class CreditsScene extends Scene {
 			e.printStackTrace();
 		}
 
-		this.addGameObject(new GameButton(resetImage, Starter.startScene, Starter.WINDOW_WIDTH - 60, 10));
+		this.addGameObject(new GameButton(resetImage, Wallbanger.startScene, Wallbanger.WINDOW_WIDTH - 60, 10));
 
-		Header header = new Header("Credits", Starter.WINDOW_WIDTH / 3, Starter.WINDOW_HEIGHT / 4,
+		Header header = new Header("Credits", Wallbanger.WINDOW_WIDTH / 3, Wallbanger.WINDOW_HEIGHT / 4,
 				new Font("04b", Font.BOLD, 160), Color.ORANGE, 100);
-		Header developer = new Header("Developer: " + dev, Starter.WINDOW_WIDTH / 5, Starter.WINDOW_HEIGHT / 3,
+		Header developer = new Header("Developer: " + dev, Wallbanger.WINDOW_WIDTH / 5, Wallbanger.WINDOW_HEIGHT / 3,
 				new Font("04b", Font.BOLD, 60), Color.GRAY, 60);
-		Header help = new Header("Help + Inspiration: " + helper, Starter.WINDOW_WIDTH / 5,
-				Starter.WINDOW_HEIGHT / 2 - 80, new Font("04b", Font.BOLD, 60), Color.GRAY, 60);
-		Header graphicDesigner = new Header("Graphic Designer: " + graphics, Starter.WINDOW_WIDTH / 5,
-				Starter.WINDOW_HEIGHT - 550, new Font("04b", Font.BOLD, 60), Color.GRAY, 60);
+		Header help = new Header("Help + Inspiration: " + helper, Wallbanger.WINDOW_WIDTH / 5,
+				Wallbanger.WINDOW_HEIGHT / 2 - 80, new Font("04b", Font.BOLD, 60), Color.GRAY, 60);
+		Header graphicDesigner = new Header("Graphic Designer: " + graphics, Wallbanger.WINDOW_WIDTH / 5,
+				Wallbanger.WINDOW_HEIGHT - 550, new Font("04b", Font.BOLD, 60), Color.GRAY, 60);
 
 		this.addGameObject(header);
 		this.addGameObject(developer);

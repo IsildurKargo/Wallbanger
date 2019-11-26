@@ -12,7 +12,7 @@ import de.wallbanger.gameObjects.Ball;
 import de.wallbanger.gameObjects.GameBoard;
 import de.wallbanger.gameObjects.LevelChanger;
 import de.wallbanger.gameObjects.Wall;
-import de.wallbanger.scenes.start.Starter;
+import de.wallbanger.scenes.start.Wallbanger;
 import de.wallbanger.score.Scoreboard;
 import de.wallbanger.util.ImageUtils;
 
@@ -64,7 +64,7 @@ public class Horde extends Scene {
 	public void addGO() {
 		this.addGameObject(board);
 		this.addGameObject(
-				new GameButton(resetImage, resetOnHoverImage, Starter.startScene, Starter.WINDOW_WIDTH - 60, 10));
+				new GameButton(resetImage, resetOnHoverImage, Wallbanger.startScene, Wallbanger.WINDOW_WIDTH - 60, 10));
 		this.addGameObject(wall);
 		for (Ball ball : balls) {
 			this.addGameObject(ball);
