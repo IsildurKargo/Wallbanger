@@ -14,7 +14,7 @@ public class Wallbanger {
 	public static StartScene startScene = new StartScene();
 
 	public static void main(String[] args) {
-
+		
 //		NeuralNetwork nn = new NeuralNetwork(2, 2, 2);
 //
 //		MatrixFNN inputs = new MatrixFNN(1, 2);

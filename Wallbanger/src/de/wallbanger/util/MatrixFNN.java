@@ -172,7 +172,7 @@ public class MatrixFNN {
 		return oneDArray;
 	}
 
-	private double sigmoid(double x) {
-		return 1 / (1 + Math.exp(-x));
-	}
+	public static double sigmoid(double x) {
+	    return (1/( 1 + Math.pow(Math.E,(-1*x))));
+	 }
 }

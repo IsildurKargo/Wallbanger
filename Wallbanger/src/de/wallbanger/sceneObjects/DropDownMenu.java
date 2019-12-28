@@ -1,12 +1,12 @@
 package de.wallbanger.sceneObjects;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import de.wallbanger.engine.GameObject;
+import de.wallbanger.settings.Settings;
 
 public class DropDownMenu extends GameObject {
 
@@ -22,9 +22,9 @@ public class DropDownMenu extends GameObject {
 	private float width;
 	private float height;
 
-	private int count;
-
 	private boolean dropDown;
+
+	private BoxOption choice;
 
 	public DropDownMenu(int MenuX, int MenuY, int width, int height) {
 		this.MenuX = (float) MenuX;
@@ -40,6 +40,7 @@ public class DropDownMenu extends GameObject {
 
 	@Override
 	public void init() {
+		// if there is no input add input null
 		if (options.size() == 0) {
 			options.add(new BoxOption("Null", Math.round(x), calculateY(), Math.round(width), Math.round(height)));
 		}
@@ -47,53 +48,111 @@ public class DropDownMenu extends GameObject {
 			option.init();
 		}
 		dropDown = false;
+
+		choice = new BoxOption(Settings.instance.getSetting("resolution"), Math.round(MenuX), Math.round(MenuY),
+				Math.round(MenuWidth), Math.round(MenuHeight));
+		choice.init();
+
 	}
 
 	@Override
 	public void update(long delta) {
+		// make sure to still drop down while hovering over options
 		if (dropDown) {
 			MenuHeight = this.height * options.size();
 		} else {
 			MenuY = this.y;
 			MenuHeight = this.height;
 		}
+
+		choice.setName(Settings.instance.getSetting("resolution"));
 	}
 
 	@Override
 	public void onMoving(MouseEvent e) {
+		// execute onMoving in all option boxes
 		for (BoxOption boxOption : options) {
 			boxOption.onMoving(e);
 		}
 
+		// drop down if you hover over menu
 		if (e.getX() < this.MenuX || e.getX() > this.MenuX + this.MenuWidth || e.getY() < this.MenuY
 				|| e.getY() > this.MenuY + this.MenuHeight) {
 			dropDown = false;
 			return;
 		}
-
 		dropDown = true;
+	}
 
+	@Override
+	public void onClick(MouseEvent e) {
+		for (BoxOption option : options) {
+			option.onClick(e);
+			if (option.isChoice()) {
+				Settings.instance.addSetting("resolution", option.getName());
+				option.setChoice(false);
+			}
+		}
 	}
 
 	@Override
 	public void render(Graphics g) {
+		// render all boxes if drop down is active else only render first one
 		if (dropDown) {
 			for (BoxOption option : options) {
 				option.render(g);
 			}
 		} else {
-			options.get(0).render(g);
+			// render a new BoxOption with the correct resolution
+			choice.render(g);
 		}
 	}
 
 	private int calculateY() {
 		float newY;
-		newY = this.y + (50 * count);
-		count++;
+		newY = this.y + (this.height * options.size());
 		return Math.round(newY);
 	}
 
-	public void addString(String addOption) {
+	// add OptionBox
+	public void addOption(String addOption) {
 		options.add(new BoxOption(addOption, Math.round(x), calculateY(), Math.round(width), Math.round(height)));
+	}
+
+	public void removeOption(String removeOption) {
+		for (BoxOption option : options) {
+			if (option.getName() == removeOption) {
+				options.remove(option);
+			}
+		}
+	}
+
+	// remove a OptionBox
+	public void removeOption(int index) {
+		options.remove(index);
+		if (!(index == options.size() - 1)) {
+			for (int i = index + 1; i < options.size() - 1; i++) {
+				options.set(i - 1, options.get(i));
+				options.remove(i);
+			}
+		}
+	}
+
+	public void setBaseColor(Color color) {
+		for (BoxOption option : options) {
+			option.setBaseColor(color);
+		}
+	}
+
+	public void setHoverColor(Color color) {
+		for (BoxOption option : options) {
+			option.setHoverColor(color);
+		}
+	}
+
+	public void setTextColor(Color color) {
+		for (BoxOption option : options) {
+			option.setTextColor(color);
+		}
 	}
 }

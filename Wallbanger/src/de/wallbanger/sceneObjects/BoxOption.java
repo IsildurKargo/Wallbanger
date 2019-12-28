@@ -6,6 +6,8 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
+import de.wallbanger.settings.Settings;
+
 public class BoxOption {
 
 	private int x;
@@ -14,7 +16,13 @@ public class BoxOption {
 	private int height;
 
 	private Color color;
+	private Color baseColor;
+	private Color hoverColor;
+	private Color textColor;
+
 	private String option;
+
+	private boolean choice;
 
 	Font font;
 	FontMetrics fontM;
@@ -29,14 +37,25 @@ public class BoxOption {
 	}
 
 	public void init() {
-		color = Color.DARK_GRAY;
+		if (baseColor == null) {
+			baseColor = Color.DARK_GRAY;
+		}
+		if (hoverColor == null) {
+			hoverColor = Color.ORANGE;
+		}
+
+		if (textColor == null) {
+			textColor = Color.BLACK;
+		}
+		color = baseColor;
+		choice = false;
 		font = new Font("Minecraft", Font.BOLD, height);
 	}
 
 	public void render(Graphics g) {
 		g.setColor(color);
 		g.fillRect(x, y, width, height);
-		g.setColor(Color.BLACK);
+		g.setColor(textColor);
 		g.setFont(font);
 		g.drawString(option, x + 20, y + 45);
 		fontM = g.getFontMetrics();
@@ -45,11 +64,19 @@ public class BoxOption {
 	public void onMoving(MouseEvent e) {
 		if (e.getX() < this.x || e.getX() > this.x + this.width || e.getY() < this.y
 				|| e.getY() > this.y + this.height) {
-			color = Color.DARK_GRAY;
+			color = baseColor;
 			return;
 		} else {
-			color = Color.ORANGE;
+			color = hoverColor;
 		}
+	}
+
+	public void onClick(MouseEvent e) {
+		if (e.getX() < this.x || e.getX() > this.x + this.width || e.getY() < this.y
+				|| e.getY() > this.y + this.height) {
+			return;	
+		}
+		choice = true;
 	}
 
 	public FontMetrics getFontM() {
@@ -62,5 +89,33 @@ public class BoxOption {
 
 	public int getY() {
 		return y;
+	}
+
+	public String getName() {
+		return option;
+	}
+
+	public void setName(String name) {
+		this.option = name;
+	}
+
+	public void setBaseColor(Color color) {
+		this.baseColor = color;
+	}
+
+	public void setHoverColor(Color color) {
+		this.hoverColor = color;
+	}
+
+	public void setTextColor(Color color) {
+		this.textColor = color;
+	}
+
+	public boolean isChoice() {
+		return choice;
+	}
+
+	public void setChoice(boolean choice) {
+		this.choice = choice;
 	}
 }
