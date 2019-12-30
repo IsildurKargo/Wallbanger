@@ -52,7 +52,6 @@ public class DropDownMenu extends GameObject {
 		choice = new BoxOption(Settings.instance.getSetting("resolution"), Math.round(MenuX), Math.round(MenuY),
 				Math.round(MenuWidth), Math.round(MenuHeight));
 		choice.init();
-
 	}
 
 	@Override
