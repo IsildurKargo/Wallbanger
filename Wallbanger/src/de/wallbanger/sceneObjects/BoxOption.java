@@ -57,7 +57,7 @@ public class BoxOption {
 		g.fillRect(x, y, width, height);
 		g.setColor(textColor);
 		g.setFont(font);
-		g.drawString(option, x + 20, y + 45);
+		g.drawString(option, (int) Math.round(x + (width * 0.028571)), (int) Math.round(y + (height * 0.9)));
 		fontM = g.getFontMetrics();
 	}
 
@@ -74,7 +74,7 @@ public class BoxOption {
 	public void onClick(MouseEvent e) {
 		if (e.getX() < this.x || e.getX() > this.x + this.width || e.getY() < this.y
 				|| e.getY() > this.y + this.height) {
-			return;	
+			return;
 		}
 		choice = true;
 	}

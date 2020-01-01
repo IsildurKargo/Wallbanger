@@ -29,8 +29,8 @@ public class CreditsScene extends Scene {
 
 		this.addGameObject(new GameButton(resetImage, Wallbanger.startScene, Wallbanger.WINDOW_WIDTH - 60, 10));
 
-		Header header = new Header("Credits", Wallbanger.WINDOW_WIDTH / 3, Wallbanger.WINDOW_HEIGHT / 4,
-				new Font("04b", Font.BOLD, 160), Color.ORANGE, 100);
+																									Header header = new Header("Credits", Wallbanger.WINDOW_WIDTH / 3, Wallbanger.WINDOW_HEIGHT / 4,
+																											new Font("04b", Font.BOLD, 160), Color.ORANGE, 100);
 		Header developer = new Header("Developer: " + dev, Wallbanger.WINDOW_WIDTH / 5, Wallbanger.WINDOW_HEIGHT / 3,
 				new Font("04b", Font.BOLD, 60), Color.GRAY, 60);
 		Header help = new Header("Help + Inspiration: " + helper, Wallbanger.WINDOW_WIDTH / 5,

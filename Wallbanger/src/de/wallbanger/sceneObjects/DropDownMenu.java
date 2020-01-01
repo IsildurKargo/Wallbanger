@@ -23,10 +23,11 @@ public class DropDownMenu extends GameObject {
 	private float height;
 
 	private boolean dropDown;
+	private String setting;
 
 	private BoxOption choice;
 
-	public DropDownMenu(int MenuX, int MenuY, int width, int height) {
+	public DropDownMenu(int MenuX, int MenuY, int width, int height, String setting) {
 		this.MenuX = (float) MenuX;
 		this.MenuY = (float) MenuY;
 		this.MenuWidth = (float) width;
@@ -36,6 +37,8 @@ public class DropDownMenu extends GameObject {
 		this.y = (float) MenuY;
 		this.width = (float) width;
 		this.height = (float) height;
+		
+		this.setting = setting;
 	}
 
 	@Override
@@ -88,7 +91,7 @@ public class DropDownMenu extends GameObject {
 		for (BoxOption option : options) {
 			option.onClick(e);
 			if (option.isChoice()) {
-				Settings.instance.addSetting("resolution", option.getName());
+			 	Settings.instance.addSetting(setting, option.getName());
 				option.setChoice(false);
 			}
 		}

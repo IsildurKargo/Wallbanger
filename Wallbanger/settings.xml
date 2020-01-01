@@ -10,7 +10,7 @@
         <node name="settings">
           <map>
             <entry key="level" value="6"/>
-            <entry key="resolution" value="1920x1080"/>
+            <entry key="resolution" value="3840x1600"/>
           </map>
         </node>
       </node>
