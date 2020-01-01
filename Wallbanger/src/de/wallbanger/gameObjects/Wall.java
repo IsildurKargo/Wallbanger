@@ -143,7 +143,7 @@ public class Wall extends GameObject {
 		// CALCULATING X AND WIDTH FOR CURRENT FRAME
 
 		// if x and width both are at maximum they supposed to stay there
-		if (x + velocityX <= 0 && width + velocityWidth >= gameBoard.getWidth()) {
+		if (x - velocityX <= 0 && x + width + velocityWidth >= gameBoard.getWidth()) {
 			velocityX = 0;
 			x = 0;
 			velocityWidth = 0;
@@ -155,15 +155,16 @@ public class Wall extends GameObject {
 			} else {
 				this.init();
 			}
-			// if only x is at maximum stay there and slow down width because width equals
+			// if only x is at maximum (minimum) stay there and slow down width because
+			// width equals
 			// two times speedX
-		} else if (x + velocityX <= 0) {
+		} else if (x - velocityX <= 0) {
 			velocityX = 0;
 			x = 0;
 			velocityWidth = speedX * delta;
 
 			// if only width is at maximum stay there by slowing down to half speed
-		} else if (width + velocityWidth >= gameBoard.getWidth()) {
+		} else if (x + width + velocityWidth >= gameBoard.getWidth()) {
 			velocityWidth = speedX * delta;
 			width = gameBoard.getWidth();
 		}
@@ -183,7 +184,7 @@ public class Wall extends GameObject {
 		// CALCULATING Y AND HEIGHT FOR CURRENT FRAME
 
 		// if y and height both are at maximum they supposed to stay there
-		if (y + velocityY <= 0 && height + velocityHeight >= gameBoard.getHeight()) {
+		if (y - velocityY <= 0 && y + height + velocityHeight >= gameBoard.getHeight()) {
 			velocityY = 0;
 			y = 0;
 			velocityHeight = 0;
@@ -197,12 +198,12 @@ public class Wall extends GameObject {
 			}
 			// if only y is at maximum stay there and slow down height because height equals
 			// two times speedY
-		} else if (y + velocityY <= 0) {
+		} else if (y - velocityY <= 0) {
 			velocityY = 0;
 			y = 0;
 			velocityHeight = speedY * delta;
 			// if only height is at maximum stay there by slowing down to half speed
-		} else if (height + velocityHeight >= gameBoard.getHeight()) {
+		} else if (y + height + velocityHeight >= gameBoard.getHeight()) {
 			velocityHeight = speedY * delta;
 			height = gameBoard.getHeight();
 		}

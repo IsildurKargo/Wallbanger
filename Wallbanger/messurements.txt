@@ -13,10 +13,12 @@ Window
 IMPORTANT 
 
 -----------------------------
--    x->	width->			-
--    y						-
--	 |   		height		-
--	 v	    		|		-
+-  - x +	width->			-
+-    
+-	 +
+-	 y						-
+-	 -   		height		-
+-	 	    		|		-
 -					v		-
 -							-
 -							-

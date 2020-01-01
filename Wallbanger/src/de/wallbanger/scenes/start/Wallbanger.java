@@ -7,7 +7,7 @@ public class Wallbanger {
 
 	public static int WINDOW_WIDTH = 2560;
 	public static int WINDOW_HEIGHT = 1440;
-	public static final String version = "alpha 1.0.4";
+	public static final String version = "alpha 1.0.5";
 	public static Engine engine = new Engine();
 	public static Wallbanger instance;
 
